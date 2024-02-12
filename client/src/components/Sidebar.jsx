@@ -116,7 +116,7 @@ const Sidebar = ({
         isSidebarOpen && (
         <Drawer open={isSidebarOpen}
           onClose={()=>setIsSidebarOpen(false)}
-          variant='persistant'
+          variant='persistent'
           anchor='left'
           sx={{
             width:drawerWidth,
@@ -125,7 +125,11 @@ const Sidebar = ({
                 backgroundColor:theme.palette.background.alt,
                 boxSizing:"border-box",
                 borderWidth:isNonMobile?0:"2px",
-                width:drawerWidth
+                width:drawerWidth,
+                overflowY: 'scroll', // Enable vertical scrolling
+                "&::-webkit-scrollbar": { // Hide the scrollbar
+                  display: 'none'
+                }
             }
           }}
           >
